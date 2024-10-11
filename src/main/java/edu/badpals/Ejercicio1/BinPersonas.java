@@ -78,7 +78,7 @@ public class BinPersonas {
         return personas;
     }
 
-    public static Document personasToDOM(List<String> personas) {
+    public static Document binToDOM(List<String> personas) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -114,7 +114,7 @@ public class BinPersonas {
 
     public static void toXML(String binPath) {
 
-        Document doc = personasToDOM(readBin(binPath));
+        Document doc = binToDOM(readBin(binPath));
         try {
             File f=new File("ref/personas.xml");
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
