@@ -2,6 +2,8 @@ package edu.badpals.Ejercicio1;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,6 +21,7 @@ import java.util.List;
 public class BinPersonas {
 
     public static void main(String[] args) {
+
         List<Persona> personas = new ArrayList<>();
         personas.add(new Persona("Juan", 20));
         personas.add(new Persona("Pedro", 30));
@@ -29,6 +32,8 @@ public class BinPersonas {
         guardarNombreEdad(personas);
 
         toXML("ref/nombreEdad.bin");
+
+        System.out.printf(makePersonsXml("ref/personas.xml").toString());
 
     }
 
@@ -104,7 +109,6 @@ public class BinPersonas {
 
                 rootElement.appendChild(personaElement);
             }
-
             return doc;
         } catch (ParserConfigurationException ex) {
             System.err.println("Error al crear el documento DOM: " + ex.getMessage());
@@ -118,7 +122,8 @@ public class BinPersonas {
         try {
             File f=new File("ref/personas.xml");
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             StreamResult result = new StreamResult(f);
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
@@ -126,4 +131,32 @@ public class BinPersonas {
             System.out.println("¡Error! No se ha podido llevar a cabo la transformación.");
         }
     }
+
+
+
+    public static ArrayList<Persona> makePersonsXml(String path) {
+        ArrayList<Persona> personas = new ArrayList<>();
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document documento = builder.parse(new File(path));
+            documento.getDocumentElement().normalize();
+
+            NodeList personaList = documento.getElementsByTagName("persona");
+
+            for (int i = 0; i < personaList.getLength(); i++) {
+                Node nodoPersona = personaList.item(i);
+                Element elementoPersona = (Element) nodoPersona;
+
+                String nombre = elementoPersona.getElementsByTagName("nombre").item(0).getTextContent();
+                String edad = elementoPersona.getElementsByTagName("edad").item(0).getTextContent();
+
+                personas.add(new Persona(nombre, Integer.parseInt(edad)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return personas;
+    }
+
 }
