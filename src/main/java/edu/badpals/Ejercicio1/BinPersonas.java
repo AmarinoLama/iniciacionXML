@@ -127,6 +127,12 @@ public class BinPersonas {
             StreamResult result = new StreamResult(f);
             DOMSource source = new DOMSource(doc);
             transformer.transform(source, result);
+
+            StringWriter writer = new StringWriter();
+            transformer.transform(new DOMSource(doc), new StreamResult(writer));
+            String xmlString = writer.getBuffer().toString();
+
+            System.out.println(xmlString);
         } catch (TransformerException ex) {
             System.out.println("¡Error! No se ha podido llevar a cabo la transformación.");
         }
