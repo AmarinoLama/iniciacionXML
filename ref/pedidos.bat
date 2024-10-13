@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pedidos>
+    <pedido>
+        <idPedido>1</idPedido>
+        <nomeCliente>Cliente 1</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>100</idProducto>
+                <descripcion>Monitor</descripcion>
+                <precio>100.0</precio>
+            </producto>
+            <producto>
+                <idProducto>101</idProducto>
+                <descripcion>Rato</descripcion>
+                <precio>10.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+    <pedido>
+        <idPedido>2</idPedido>
+        <nomeCliente>Cliente 2</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>102</idProducto>
+                <descripcion>Portatil</descripcion>
+                <precio>600.0</precio>
+            </producto>
+            <producto>
+                <idProducto>103</idProducto>
+                <descripcion>Tablet</descripcion>
+                <precio>400.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+    <pedido>
+        <idPedido>3</idPedido>
+        <nomeCliente>Cliente 2</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>102</idProducto>
+                <descripcion>Portatil</descripcion>
+                <precio>600.0</precio>
+            </producto>
+            <producto>
+                <idProducto>103</idProducto>
+                <descripcion>Tablet</descripcion>
+                <precio>400.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+    <pedido>
+        <idPedido>4</idPedido>
+        <nomeCliente>Cliente 3</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>100</idProducto>
+                <descripcion>Monitor</descripcion>
+                <precio>100.0</precio>
+            </producto>
+            <producto>
+                <idProducto>101</idProducto>
+                <descripcion>Rato</descripcion>
+                <precio>10.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+    <pedido>
+        <idPedido>5</idPedido>
+        <nomeCliente>Cliente 4</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>104</idProducto>
+                <descripcion>Teclado</descripcion>
+                <precio>50.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+    <pedido>
+        <idPedido>6</idPedido>
+        <nomeCliente>Cliente 5</nomeCliente>
+        <productos>
+            <producto>
+                <idProducto>100</idProducto>
+                <descripcion>Monitor</descripcion>
+                <precio>100.0</precio>
+            </producto>
+            <producto>
+                <idProducto>101</idProducto>
+                <descripcion>Rato</descripcion>
+                <precio>10.0</precio>
+            </producto>
+        </productos>
+    </pedido>
+</pedidos>
