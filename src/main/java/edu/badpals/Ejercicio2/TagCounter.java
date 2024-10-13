@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class tagCounter {
+public class TagCounter {
     public static void main(String[] args) {
         SAXBuilder builder = new SAXBuilder();
         File xmlFIle = new File("ref/personas.xml");
